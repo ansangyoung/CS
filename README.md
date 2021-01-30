@@ -7,3 +7,6 @@ Etc/Spring 추가
 2021.01.24  
 Etc/Web 추가  
 OS 추가  
+
+2021.01.30  
+Etc/FinancialTechnology 추가   
