@@ -10,3 +10,6 @@ OS 추가
 
 2021.01.30  
 Etc/FinancialTechnology 추가   
+
+2021.02.06  
+Etc/Transaction 추가  
