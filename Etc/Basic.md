@@ -1,3 +1,16 @@
+# Basic  
+
+### 바인딩  
+프로그램의 각종 변수값들이 실제 값으로 묶여 버리는 것.  
+
+### 마운트  
+어떠한 것을 Available 한 상태로 준비하는 것.  
+예를 들어 소스파일을 Compile 하는 것은 운영체제가 사용할 수 있도록 Mount하는 것의 구체적인 예이다.  
+
+### 포팅  
+CPU, 운영체제, 서드 파티 라이브러리 등 실행 가능한 프로그램이 원래 설계된 바와 다른 컴퓨팅 환경에서 동작할 수 있도록 하는 과정.  
+소프트웨어나 하드웨어가 다른 환경에서 사용할 수 있게 변경되는 것에도 해당한다.  
+
 ### 메시지 암 복호화 SHA  
 SHA(Secure Hash Algorithm, 안전한 해시 알고리즘) 함수들은 서로 관련된 암호학적 해시 함수들의 모음이다.  
 SHA 함수군에 속하는 최초의 함수는 공식적으로 SHA라고 불리지만, 나중에 설계된 함수들과 구별하기 위하여 SHA-0이라고도 불린다.  
@@ -38,3 +51,5 @@ SEED가 개발되어 배포되고 이를 통해서 대한민국 인터넷 뱅킹
 ### 참고문헌  
 1. [SHA](https://ko.wikipedia.org/wiki/SHA)  
 2. [SEED](https://namu.wiki/w/SEED)  
+3. [마운트(Mount)하다.](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=dbwodlf3&logNo=220980418851)  
+4. [IT용어 - porting(포팅) 이란 무엇일까?](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=on21life&logNo=221179868842)
