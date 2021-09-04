@@ -26,5 +26,15 @@ Cookie
 4. expires 속성을 정의해서 삭제될 날짜를 지정할 수 있다.(따로 지정하지 않은 경우에는 브라우저 종료시 만료)  
 5. Client에 저장되기 때문에 다른 사용자에 의해서 임의로 변경이 가능하다.(지워져도 되고, 조작되거나 가로채이더라도 큰 지장이 없는 수준의 정보들을 저장한다.)  
   
+  
+Cross-Origin Resource Sharing 정책  
+교차 출처 리소스 공유는추가 HTTP 헤더를 사용하여, 한 출처에서 실행 중인 웹 애플리케이션이 다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제입니다.  
+웹 애플리케이션은 리소스가 자신의 출처(도메인, 프로토콜, 포트)와 다를 때, 교차 출처 HTTP 요청을 실행합니다.  
+
+출처(Origin)  
+protocol과 host, port번호까지 합친 것을 의미  
+
 ### 참조   
 1.[쿠키와 세션의 개념/차이/용도/작동방식](https://devuna.tistory.com/23)  
+2.[교차 출처 리소스 공유 (CORS)](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS)  
+3.[CORS는 왜 이렇게 우리를 힘들게 하는걸까?](https://evan-moon.github.io/2020/05/21/about-cors/)  
