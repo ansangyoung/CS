@@ -27,7 +27,7 @@ domain은 field의 범위.
 ### SQL 언어의 종류  
 1. DQL(Data Query Language)  
 데이터 질의어, 데이터 검색, 출력과 관련된 쿼리로 select가 있다.  
-2. DML(Data Manapulation Language)  
+2. DML(Data Manipulation Language)  
 데이터 조작어, 데이터 입력, 수정, 삭제와 관련된 쿼리로 insert, update, delete가 있다.
 3. DDL(Data Definition Language)  
 데이터 정의어, 테이블 생성 및 삭제, 테이블 구조 수정과 관련된 쿼리로 Create table, drop table, alter table이 있다.  
