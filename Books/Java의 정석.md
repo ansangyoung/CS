@@ -1,8 +1,8 @@
-Java의 정석 3rd Edition  
-남궁 성 지음  
+# Java의 정석 3rd Edition  
+### 남궁 성 지음  
 
 
-# Chapter 06 객체지향 프로그래밍1(Object-oriented Programming 1)  
+## Chapter 06 객체지향 프로그래밍1(Object-oriented Programming 1)  
 
 ## 1. 객체지향언어  
 
