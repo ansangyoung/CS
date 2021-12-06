@@ -320,16 +320,17 @@ Object 객체에 있는 finalize()라는 메서드는 자동으로 호출되는�
 ### 1.1 상속의 정의와 장점  
 1. 생성자와 초기화 블럭은 상속되지 않는다. 멤버만 상속된다.  
 2. 자손 클래스의 멤버 개수는 조상 클래스보다 항상 같거나 많다.  
-(접근 제어자가 private 또는 default인 멤버들은 상속되지 않는다기보다  
+(접근 제어자가 private 또는 default인 멤버들은 상속되지 않는다기보다는  
 상속은 받지만 자손 클래스로부터의 접근이 제한되는 것이다.)  
 
-자손 클래스의 인스턴스를 생성하면 조상 클래스의 멤버와 자손 클래스의 멤버가 합쳐진 하나의 인서트너스로 생성된다.  
+자손 클래스의 인스턴스를 생성하면 조상 클래스의 멤버와 자손 클래스의 멤버가 합쳐진 하나의 인스턴스로 생성된다.  
 
 
 ### 1.4 단일 상속(single inheritance)  
-클래스를 이용하여 다중 상속을 할 경우 메서드 출처의 모호성 등 여러 가지 문제가 발생할 수 있어  
+클래스를 이용하여 다중 상속을 할 경우 메서드 출처의 모호성 등 여러 가지 문제가 발생할 수 있어서  
 자바에서는 클래스를 통한 다중 상속은 지원하지 않는다.  
-(클래스 간의 관계가 보다 명확해지고 코드를 더욱 신뢰할 수 있게 만들어 준다는 점에서 다중상속보다 유리하다.)  
+(클래스 간의 관계가 보다 명확해지고 코드를 더욱 신뢰할 수 있게 만들어 준다는 점에서  
+단일상속이 다중상속보다 유리하다.)  
 
 
 
@@ -358,10 +359,13 @@ out.println(random());
 그 외: static, final, abstract, native, transient, synchronized, volatile, strictfp  
 
 
-native: 자바에서 다른 언어를 사용할 수 있게 만들어주는 키워드. ex) JNI를 사용할 때, native 키워드가 사용된다.  
-JNI(JAVA Native Interface): 자바로 만들어진 프로그램에서 특정 플랫폼에서만 실행되는 코드(Native Code)에 접근하기 위한 API이다. ex) c <-> java  
+native: 자바에서 다른 언어를 사용할 수 있게 만들어주는 키워드.  
+ex) JNI를 사용할 때, native 키워드가 사용된다.  
+
+JNI(JAVA Native Interface): 자바로 만들어진 프로그램에서 특정 플랫폼에서만 실행되는 코드(Native Code)에 접근하기 위한 API이다.  
+ex) c <-> java  
 ```  
-톰캣 서버 DataSource 설정하는 context.xml  
+톰캣 서버 DataSource 설정하는 context.xml 예시  
 <?xml version="1.0" encoding="UTF-8"?>  
 <Context path="/">  
     <WatchedResource>WEB-INF/web.xml</WatchedResource>  
