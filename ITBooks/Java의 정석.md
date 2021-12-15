@@ -554,9 +554,30 @@ RuntimeException클래스들: 프로그래머의 실수로 발생하는 예외
   
   
 ### 1.5 예외의 발생과 catch블럭  
+예외가 발생하면, 발생한 예외에 해당하는 클래스의 인스턴스가 만들어 진다.  
+첫번째 catch블럭부터 차례로 내려가면서 catch블럭의 괄호()내에 선언된 참조변수의 종류와  
+생성된 예외클래스의 인스턴스에 instanceof연산자를 이용해서 검사하게 되는데,  
+검사결과가 true인 catch블럭을 만날 때까지 검사는 계속된다.  
+  
+printStackTrace(): 예외발생 당시의 호출스택에 있었던 메서드의 정보와 예외 메시지를 화면에 출력한다.  
+-printStackTrace(PrintStream s) 또는 printStackTrace(PrintWriter s)를 사용하면 발생한 예외에 대한 정보를 파일에 저장할 수도 있다.  
+getMessage(): 발생한 예외클래스의 인스턴스에 저장된 메시지를 얻을 수 있다.  
+  
+  
 ### 1.6 예외 발생시키기  
+컴파일러가 예외처리를 확인하지 않는 RuntimeException클래스들은 'unchecked예외'라고 부르고,  
+예외처리를 확인하는 Exception클래스들은 'checked예외'라고 부른다.  
+  
+  
 ### 1.7 메서드에 예외 선언하기  
+생략.  
+  
+  
 ### 1.8 finally블럭  
+try블럭에서 return문이 실행되는 경우에도 finally블럭의 문장들이 먼저 실행된 후에, 현재 실행 중인 메서드를 종료한다.  
+이와 마찬가지로 catch블럭의 문장 수행 중에 return문을 만나도 finally블럭의 문장들은 수행된다.  
+  
+  
 ### 1.9 자동 자원 반환 - try-with-resources문  
 ### 1.10 사용자정의 예외 만들기  
 ### 1.11 예외 되던지기(exception re-throwing)  
