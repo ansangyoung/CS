@@ -23,6 +23,7 @@ cache n: 메모리에 캐시하는 갯수 지정. 기본값은 20이다.
   
 ### 사용 예  
 -생성(CREATE), 수정(ALTER), 삭제(DROP) 의 각각의 예문은 다음과 같다.  
+```  
 CREATE SEQUENCE test_seq  
 start with 1  
 increment by 1;  
@@ -30,13 +31,14 @@ increment by 1;
 ALTER SEQUENCE test_seq;  
   
 DROP SEQUENCE test_seq;  
-  
+```  
   
 -현재 시퀀스 값 확인  
-SELECT test_seq.currval FROM dual;  
+``SELECT test_seq.currval FROM dual;``  
   
   
 ### Quiz  
+```  
 DELETE FROM board;  
 DELETE FROM board2;  
 DROP SEQUENCE test_seq;  
@@ -58,6 +60,7 @@ VALUES
   
 SELECT * FROM board;  -- 1, title1  
 SELECT * FROM board2;  -- 2, title2  
+```  
   
   
 ### 참고  
