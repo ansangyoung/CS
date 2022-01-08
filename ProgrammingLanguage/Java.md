@@ -38,11 +38,11 @@ java First(실행)
   
   
 ### 자바 데이터 타입  
-1. 래퍼런스 타입  
+-래퍼런스 타입  
 클래스 타입, 인터페이스 타입, 배열 타입, 열거 타입  
   
-2. 프리미티브 타입  
-수치타입  
+-프리미티브 타입  
+1. 수치타입  
 byte 1 Byte  
 char 2 Byte  
 short 2 Byte  
@@ -50,8 +50,8 @@ int 4 Byte
 long 8 Byte  
 float 4 Byte  
 double 8 Byte  
-
-불리언 타입  
+  
+2. 불리언 타입  
 1 Byte로 초기값은 false  
   
   
