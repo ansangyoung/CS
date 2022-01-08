@@ -42,8 +42,7 @@ java First(실행)
 클래스 타입, 인터페이스 타입, 배열 타입, 열거 타입  
   
 2. 프리미티브 타입  
-  
--수치타입  
+수치타입  
 byte 1 Byte  
 char 2 Byte  
 short 2 Byte  
@@ -52,7 +51,7 @@ long 8 Byte
 float 4 Byte  
 double 8 Byte  
 
--불리언 타입  
+불리언 타입  
 1 Byte로 초기값은 false  
   
   
