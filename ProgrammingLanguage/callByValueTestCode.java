@@ -5,12 +5,13 @@ public class callByValueTestCode {
 		int num2 = 20;
 
 		System.out.println("before swap()");
-		System.out.println("num1:" + num1);
-		System.out.println("num2:" + num2);
+		System.out.println("num1: " + num1);
+		System.out.println("num2: " + num2);
+		
 		swap(num1, num2);
-		System.out.println("\nafter swap()");
-		System.out.println("num1:" + num1);
-		System.out.println("num2:" + num2);
+		System.out.println("\n after swap()");
+		System.out.println("num1: " + num1);
+		System.out.println("num2: " + num2);
 	}
 
 	static void swap(int num1, int num2) {
