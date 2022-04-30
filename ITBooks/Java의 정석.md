@@ -469,9 +469,9 @@ thread에서 사용되는 것인데, cpu cache와 메인메모리에서의 read 
 ### 7.4.5 접근 제어자(access modifier)  
 제어자들 간의 순서는 관계없지만, 주로 접근제어자를 제일 왼쪽에 놓는 경향이 있다.  
   
-### 생성자의 접근 제어자  
+#### 생성자의 접근 제어자  
 생성자에 접근 제어자를 사용함으로써 인스턴스의 생성을 제한할 수 있다.  
-생성자의 접근 제어자를  private으로 지정하면, 외부에서 생성자에 접근할 수 없으므로 인스턴스를 생성할 수 없게 된다.  
+생성자의 접근 제어자를  private으로 지정하면, 외부에서 생성자에 접근할 수 없으므로, 인스턴스를 생성할 수 없게 된다.  
 (그래도 클래스 내부에서는 인스턴스를 생성할 수 있다.)  
 ```  
 class Singleton {  
@@ -482,7 +482,7 @@ class Singleton {
 }  
 ```  
   
-대신 인스턴스를 생성해서 반환해주는  public 메서드를 제공함으로써, 외부에서 이 클래스의 인스턴스를 사용하도록 할 수 있다.  
+대신에 인스턴스를 생성해서 반환해주는  public 메서드를 제공함으로써, 외부에서 이 클래스의 인스턴스를 사용하도록 할 수 있다.  
 이 메서드는 public인 동시에 static이어야 한다.  
 ```  
 class Singleton {  
@@ -493,14 +493,15 @@ class Singleton {
         ...  
     }  
     
-    // 인스턴스를 생성하지 않고도 호출할 수 있어야 하므로 static이어야 한다.  
+    // 인스턴스를 생성하지 않고도 호출할 수 있어야 하므로, static이어야 한다.  
     public static Singleton getInstance() {  
         return s;  
     }  
     ...  
 }  
 ```  
-이처럼 생성자를 통해 직접 인스턴스를 생성하지 못하게 하고 public메서드를 통해 인스턴스에 접근하게 함으로써 사용할 수 있는 인스턴스의 개수를 제한할 수 있다.  
+이처럼 생성자를 통해 직접 인스턴스를 생성하지 못하게 하고 public메서드를 통해 인스턴스에 접근하게 함으로써,  
+사용할 수 있는 인스턴스의 개수를 제한할 수 있다.  
   
   
 ### 7.4.6 제어자(modifier)의 조합  
@@ -517,6 +518,24 @@ abstract는 상속을 통해서 완성되어야 한다는 의미이므로, 서�
   
 4. 메서드에 private과 final을 같이 사용하 필요는 없다.  
 -접근 제어자가 private인 메서드는 오버라이딩될 수 없기 때문이다. 이 둘 중 하나만 사용해도 의미가 충분하다.  
+  
+  
+  
+## 7.5 다형성(polymorphism)  
+### 7.5.1 다형성이란?  
+여러 가지 형태를 가질 수 있는 능력을 의미한다.  
+자바에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 함으로써 다형성을 프로그램적으로 구현하였다.  
+이를 좀 더 구체적으로 말하자면, 조상클래스 타입의 참조변수로 자손클래스의 인스턴스를 참조할 수 있도록 하였다.  
+  
+```  
+//class Tv  
+//class CaptionTv extends Tv  
+  
+CaptionTv c = new CaptionTv();  
+Tv t = new CaptionTv();  
+```  
+(Tv타입의 참조변수로는 CaptionTv인스턴스 중에서 Tv클래스의 멤버들(상속받은 멤버 포함)만 사용할 수 있다.)  
+  
   
   
 ## 7.6 추상클래스(abstract class)  
@@ -649,13 +668,17 @@ public class Polymorphism02 {
 -> 형상관리 솔루션에서는?  
   
   
+  
 # Chapter 08 예외처리(Exception Handling)  
 ## 8.1 예외처리(exception handling)  
 ### 8.1.1 프로그램 오류  
+#### 에러 종류 3가지  
 컴파일 에러: 컴파일 시에 발생하는 에러  
 런타임 에러: 실행 시에 발생하는 에러  
 논리적 에러: 실행은 되지만, 의도와 다르게 동작하는 것  
-
+  
+#### 에러 VS 예외  
+에러와 예외 모두 실행 시(runtime) 발생하는 오류이다.  
 에러: 프로그램 코드에 의해서 수습될 수 없는 심각한 오류  
 -메모리 부족, 스택오버플로우  
 예외: 프로그램 코드에 의해서 수습될 수 있는 다소 미약한 오류  
@@ -663,19 +686,34 @@ public class Polymorphism02 {
   
 ### 8.1.2 예외 클래스의 계층구조  
 Exception과 Error클래스 역시 Object클래스의 자손들이다.  
+모든 예외의 최고 조상은 Exception클래스이다.  
+```  
+Exception  
+-IOException  
+-ClassNotFoundException  
+-...  
+-RuntimeException  
+    -ArithmeticException  
+    -ClassCastException  
+    -NullPointerException  
+    -...  
+    -IndexOutOfBoundsException  
+```  
+즉, Exception클래스와 그 자손들로 나눌 수 있고, RuntimeException클래스와 그 자손들로 나눌 수 있다.  
+  
 Excetpion클래스들: 사용자의 실수와 같은 외적인 요인에 의해 발생하는 예외  
 -존재하지 않는 파일의 이름을 입력했다던가, 실수로 클래스의 이름을 잘못 적었다던가, 입력한 데이터 형식이 잘못된 경우에 발생.  
 RuntimeException클래스들: 프로그래머의 실수로 발생하는 예외  
--배열의 범위를 벗어난다던가, 값이 null인 참조변수의 멤버를 호출하려 했다던가, 클래스간의 형변환을 잘못했다던가, 정수를 0으로 나누려고하는 경우에 발생.  
+-배열의 범위를 벗어난다던가, 값이 null인 참조변수의 멤버를 호출하려 했다던가, 클래스간의 형변환을 잘못했다던가, 정수를 0으로 나누려고 하는 경우에 발생.  
   
   
 ### 8.1.3 예외처리하기 - try-catch문  
-예외처리(exception handling)  
+#### 예외처리(exception handling)  
 정의: 프로그램 실행 시 발생할 수 있는 예외에 대비한 코드를 작성하는 것.  
-목적: 프로그램의 비정상 종료를 막고, 정상적인 실행상태를 유지하는 것.  
-(에러와, 예외는 모두 실행 시(runtime) 발생하는 오류이다.)  
-
-실수를 0으로 나누는 것은 금지되어있지 않으며 예외가 발생하지 않는다?  
+목적: 프로그램의 비정상 종료를 막고, 정상적인 실행상태를 유지하는 것.
+  
+정수를 0으로 나누는 경우, ArithmeticException이 발생한다.  
+실수를 0으로 나누는 것은 금지되어있지 않으며, 예외가 발생하지 않는다.  
   
   
 ### 8.1.4 try-catch문에서의 흐름  
@@ -683,28 +721,122 @@ RuntimeException클래스들: 프로그래머의 실수로 발생하는 예외
   
   
 ### 8.1.5 예외의 발생과 catch블럭  
+catch블럭은 괄호()와 블럭{} 두 부분으로 나눠져 있는데, 괄호() 내에는 처리하고자 하는 예외와 같은 타입의 참조변수 하나를 선언해야 한다.  
+  
 예외가 발생하면, 발생한 예외에 해당하는 클래스의 인스턴스가 만들어 진다.  
+  
 첫번째 catch블럭부터 차례로 내려가면서 catch블럭의 괄호()내에 선언된 참조변수의 종류와  
 생성된 예외클래스의 인스턴스에 instanceof연산자를 이용해서 검사하게 되는데,  
 검사결과가 true인 catch블럭을 만날 때까지 검사는 계속된다.  
   
-printStackTrace(): 예외발생 당시의 호출스택에 있었던 메서드의 정보와 예외 메시지를 화면에 출력한다.  
+printStackTrace(): 예외발생 당시의 호출스택(Call Stack)에 있었던 메서드의 정보와 예외 메시지를 화면에 출력한다.  
 -printStackTrace(PrintStream s) 또는 printStackTrace(PrintWriter s)를 사용하면 발생한 예외에 대한 정보를 파일에 저장할 수도 있다.  
 getMessage(): 발생한 예외클래스의 인스턴스에 저장된 메시지를 얻을 수 있다.  
+```  
+} catch (ArithmeticException ae) {  
+    ae.printStackTrace();  
+    System.out.println("예외메시지 : " + ae.getMessage());  
+}  
+  
+output example  
+java.lang.ArithmeticException: / by zero  
+    at ExceptionEx8.main(ExcpetionEx8.java:7)  
+예외메시지 : / by zero  
+```  
   
   
 ### 8.1.6 예외 발생시키기  
+키워드 throw를 사용해서 프로그래머가 고의로 예외를 발생시킬 수 있다.  
+1. 먼저, 연산자 new를 이용해서 발생시키려는 예외 클래스의 객체를 만든다.  
+``Exception e = new Exception("고의로 발생시켰음");``  
+2. 키워드 throw를 이용해서 예외를 발생시킨다.  
+``throw e``  
+  
 컴파일러가 예외처리를 확인하지 않는 RuntimeException클래스들은 'unchecked예외'라고 부르고,  
 예외처리를 확인하는 Exception클래스들은 'checked예외'라고 부른다.  
   
   
 ### 8.1.7 메서드에 예외 선언하기  
-생략.  
+예외를 메서드에서 선언하는 방법이 있다.  
+```  
+void method() throws Exception1, Exception2, ... ExceptionN {  
+    // 메서드의 내용  
+}  
+```  
+예외를 메서드의 throws에 명시하는 것은 예외를 처리하는 것이 아니라, 자신을 호출한 메서드에게 예외를 전달하여 예외처리를 떠맡기는 것이다.  
   
   
 ### 8.1.8 finally블럭  
 try블럭에서 return문이 실행되는 경우에도 finally블럭의 문장들이 먼저 실행된 후에, 현재 실행 중인 메서드를 종료한다.  
 이와 마찬가지로 catch블럭의 문장 수행 중에 return문을 만나도 finally블럭의 문장들은 수행된다.  
+  
+  
+### 8.1.9 자동 자원 반환 - try-with-resources문  
+try-with-resources문의 괄호()안에 객체를 생성하는 문장을 넣으면  
+이 객체는 따로 close()를 호출하지 않아도 try 블럭을 벗어나는 순간 자동적으로 close()가 호출된다.  
+```  
+// 괄호() 안에 두 문장 이상 넣을 경우 ';'로 구분한다.  
+try(FileInputStream fis = new FileInputStream("socre.dat");  
+    DataInputStream dis = new DataInputStream("fis)) {  
+```  
+  
+이처럼 try-with-resources문에 의해 자동으로 객체의 close()가 호출될 수 있으려면,  
+클래스가 AutoCloseable이라는 인터페이스를 구현한 것이어야만 한다.  
+```  
+public interface AutoCloseable {  
+    void close() throws Exception;  
+}  
+```  
+  
+  
+### 8.1.10 사용자정의 예외 만들기  
+가능하면 새로운 예외 클래스를 만들기보다는 기존의 예외클래스를 활용하는 것이 좋다.  
+```  
+class MyException extends Exception {  
+    // 문자열을 매개변수로 받는 생성자  
+    MyException(String msg) {  
+        // 조상인 exception클래스의 생성자를 호출한다.  
+        super(msg);  
+    }  
+}  
+```  
+  
+요즘은 예외처리를 선택적으로 할 수 있도록 RuntimeException을 상속받아서 작성하는 쪽으로 바뀌어가고 있다.  
+  
+  
+### 8.1.11 예외 되던지기(exception re-throwing)  
+단 하나의 예외에 대해서도 예외가 발생한 메서드와 호출한 메서드, 양쪽에서 처리하도록 할 수 있다.  
+이것은 예외를 처리한 후에 인위적으로 다시 발생시키는 방법을 통해서 가능한데, 이것을 `예외 되던지기`라고 한다.  
+```  
+static void method1() throws Exception {  
+    try {  
+    } catch (Exception e) {  
+        throw e; // 다시 예외를 발생시킨다.  
+    }  
+}  
+```  
+  
+finally블럭 내에도 return문을 사용할 수 있으며, try블럭이나 catch블럭의 return문 다음에 수행된다.  
+(최종적으로 finally블럭 내의 return문의 값이 반환된다.)  
+  
+  
+### 8.1.12 연결된 예외(chained exception)  
+한 예외가 다른 예외를 발생시킬 수도 있다.  
+예를 들어 예외 A가 예외 B를 발생시켰다면, A를 B의 원인예외(cause exception)이라고 한다.  
+```  
+try {  
+    // SpaceException 발생  
+} catch (SpaceException e) {  
+    InstallException ie = new InstallException("설치중 예외 발생"); // 예외 생성  
+    ie.initCause(e); // InstallException의 원인 예외를 SpaceException으로 지정  
+    throw ie; //InstallException을 발생시킨다.  
+}  
+```  
+  
+원인 예외로 등록해서 다시 예외를 발생시키는 이유는  
+여러가지 예외를 하나의 큰 분류의 예외로 묶어서 다루기 위해서이다.  
+또 다른 이유는 checked예외를 unchecked예외로 바꿀 수 있도록 하기 위해서이다.  
+  
   
   
 끝  
