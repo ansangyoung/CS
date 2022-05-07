@@ -1009,24 +1009,21 @@ TCP/IP 프로토콜은 이기종 시스템간의 통신을 위한 표준 프로�
 TCP와 UDP 모두 TCP/IP 프로토콜(TCP/IP protocol suites)에 포함되어 있으며, OSI 7계층의 전송계층(transport layer)에 해당하는 프로토콜이다.  
   
 TCP와 UDP의 비교(전화 VS 소포)  
-1. TCP  
+1.TCP  
 연결방식: 연결기반(연결 후 통신, 1:1 통신방식)  
-  
 특징:  
 -데이터의 경계를 구분안함  
 -신뢰성 있는 데이터 전송(데이터 전송순서 보장, 데이터의 수신여부 확인, 패킷을 관리할 필요가 없음)  
 -UDP보다 전송속도가 느림  
-  
 관련클래스: Socket, ServerSocket  
   
   
-2. UDP  
+2.UDP  
 연결방식: 비연결기반(연결없이 통신, 1:1 or 1:N or N:N 통신방식)  
 특징:  
 -데이터의 경계를 구분함  
 -신뢰성 없는 데이터 전송(데이터 전송순서 미보장, 데이터의 수신여부 미확인, 패킷을 관리해주아야 함)  
 -TCP보다 전송속도가 빠름  
-  
 관련클래스: DatagramSocket, DatagramPacket, MulticastSocket  
   
   
