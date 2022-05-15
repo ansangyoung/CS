@@ -862,7 +862,39 @@ try {
 ### 11.1.1 컬렉션 프레임웍의 핵심 인터페이스  
 컬렉션 프레임웍에서는 컬렉션데이터 그룹을 크게 3가지 타입이 존재한다고 인식하고 각 컬렉션을 다루는데 필요한 기능을 가진 3개의 인터페이스를 정의(List, Set, Map)  
 인터페이스 List와 Set의 공통된 부분을 다시 뽑아서 새로운 인터페이스인 Collection을 추가로 정의  
+즉, 컬렉션 프레임웍의 모든 컬렉션 클래스들은 List, Set, Map 중의 하나를 구현하고 있다.  
+1. List: 순서가 있는 데이터의 집합으로 데이터의 중복을 허용한다.  
+구현클래스: ArrayList, LinkedList, Stack, Vector 등  
   
+2. Set: 순서를 유지하지 않는 데이터의 집합으로 데이터의 중복을 허용하지 않는다.  
+구현클래스: HashSet, TreeSet 등  
+  
+3. Map: 키와 값의 쌍으로 이루어진 데이터의 집합으로 순서는 유지되지 않으며, 키는 중복을 허용하지 않고, 값은 중복을 허용한다.  
+구현클래스: HashMap, TreeMap, Hashtable, Properties 등  
+  
+  
+  
+### 11.1.2 ArrayList  
+```  
+public class ArrayList extends AbstractList  
+    implements List, RandomAccess, Cloneable, java.io.Serializable {  
+        ...  
+        transient Object[] elemnetData; // Object배열  
+        ...  
+    }  
+```  
+  
+list2에서 list1에 포함된 객체들을 삭제하는 예제코드  
+```  
+ArrayList list1 = new ArrayList(10);  
+...  
+ArrayList list2 = new ArrayList(list1.subList(1, 4));  
+for(int i = list2.size()-1; i >= 0; i--) {  
+    if(list1.contains(list2.get(i))) {  
+        list2.remove(i);  
+    }  
+}  
+```  
   
   
 ### 11.1.14 컬렉션 클래스 정리 & 요약  
