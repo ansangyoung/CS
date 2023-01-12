@@ -1,17 +1,20 @@
 # CS  
   
 ## Alghrithm  
-### 해시 알고리즘 및 해시 충돌  
+### 1. 해시 알고리즘 및 해시 충돌  
 
 ## DB  
-### DB  
-### SQLInjection  
+### 1. DB  
+### 2. SQLInjection  
   
 ## Etc  
-### Web  
+### 1. Web  
 
 ## GeneralBooks  
+
 ## ITBooks  
+
 ## OS  
-### 리눅스 명령어  
+### 1. 리눅스 명령어  
   
+## ProgrammingLanguage  
