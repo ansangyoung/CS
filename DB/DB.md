@@ -17,11 +17,11 @@
   
 ### 테이블(엔티티)의 구조  
 2차원 배열의 형태를 가진다.  
-record는 column의 집합.  
-table(entity)는 record의 집합.  
-database는 계정과 table의 집합.  
-field는 column의 값.  
-domain은 field의 범위.  
+1. record는 column의 집합.  
+2. table(entity)는 record의 집합.  
+3. database는 계정과 table의 집합.  
+4. field는 column의 값.  
+5. domain은 field의 범위.  
   
   
 ### SQL 언어의 종류  
